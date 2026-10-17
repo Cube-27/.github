@@ -35,6 +35,10 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
       - uses: anthropics/claude-code-action@f27be6b65a4652f08a2ba3cff79114829b588967 # v1.0.252
+        env:
+          # The plugin fans out to sub-agents. Run in the background (the default), they report after a one-shot
+          # run has already ended, so a review of any size posted nothing.
+          CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1"
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           plugin_marketplaces: "https://github.com/anthropics/claude-code.git"
