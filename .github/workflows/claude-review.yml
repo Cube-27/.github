@@ -39,4 +39,4 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           plugin_marketplaces: "https://github.com/anthropics/claude-code.git"
           plugins: "code-review@claude-code-plugins"
-          prompt: "/code-review:code-review ${{ github.repository }}/pull/${{ env.PR }}"
+          prompt: "/code-review:code-review ${{ github.repository }}/pull/${{ env.PR }} --comment"
